@@ -11,9 +11,9 @@ const colCount = 50
 const width = rowCount * 30 + 2
 
 const Container = styled.div`
-    border: 2px solid red;
     margin: auto;
     width: ${width}px;
+    box-shadow: 0px 0px 20px 10px #00DAD9;
 `;
 
 
@@ -72,7 +72,7 @@ const Grid = () => {
                             let gridCopy = JSON.parse(JSON.stringify(grid))
                             gridCopy[i][j] = gridCopy[i][j] ? 0 : 1;
                             setGrid(gridCopy)
-                        }} className='cell' style={{ backgroundColor: grid[i][j] ? 'black' : undefined }} />
+                        }} className='cell' style={{ backgroundColor: grid[i][j] ? '#00DAD9' : undefined }} />
                     }))}
             </Container>
         </>
