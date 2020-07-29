@@ -1,21 +1,34 @@
 import React from 'react'
 import produce from 'immer'
+import styled from 'styled-components'
 
 const rowCount = 25
 const colCount = 50
 
+const Container = styled.div`
+    margin: 2% auto;
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+`;
+
+const Button = styled.button``;
+
 const Controls = props => {
 
     return (
-        <div>
+        <Container>
+
             {/* start / stop button  */}
-            <button onClick={() => {
+            <Button onClick={() => {
                 props.setActive(!props.active)
                 props.activeRef.current = true
                 props.simulate()
             }}>{props.active ? 'stop' : 'start'}
-            </button>
-            <button onClick={() => {
+            </Button>
+
+            {/* random button  */}
+            <Button onClick={() => {
                 if (props.active) {
                     return
                 }
@@ -28,8 +41,18 @@ const Controls = props => {
                         }
                     })
                 })
-            }}>random</button>
-        </div>
+            }}>random</Button>
+
+            {/* clear button  */}
+            <Button onClick={() => {
+                if (props.active) {
+                    return
+                }
+                props.setGrid(Array(rowCount).fill(Array(colCount).fill(0)))
+            }}>
+                clear
+            </Button>
+        </Container>
     )
 }
 
