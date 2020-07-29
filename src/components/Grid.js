@@ -1,9 +1,21 @@
 import React, { useState, useCallback, useRef } from 'react'
 import produce from 'immer'
+import styled from 'styled-components'
+
 import { neighbors } from '../utils/neighbors'
+import Controls from './Controls'
 
 const rowCount = 25
-const colCount = 25
+const colCount = 50
+
+const width = rowCount * 30 + 2
+
+const Container = styled.div`
+    border: 2px solid red;
+    margin: auto;
+    width: ${width}px;
+`;
+
 
 const Grid = () => {
 
@@ -43,31 +55,26 @@ const Grid = () => {
             })
         })
 
-        setTimeout(simulate, 1000)
+        setTimeout(simulate, 100)
     }, [])
 
     return (
         <>
-            <button onClick={() => {
-                setActive(!active)
-                activeRef.current = true
-                simulate()
-            }}>{active ? 'stop' : 'start'}</button>
-            <div style={{ display: 'grid', gridTemplateColumns: `repeat(${colCount}, 15px)` }} >
+            <Controls setActive={setActive} active={active} activeRef={activeRef} simulate={simulate} grid={grid} setGrid={setGrid} />
+            <Container style={{ display: 'grid', gridTemplateColumns: `repeat(${colCount}, 15px)` }} >
                 {grid.map((row, i) =>
                     row.map((col, j) => {
                         return <div key={`${i}-${j}`} onClick={() => {
                             if (active) {
                                 return
                             }
-                            let gridCopy = produce(grid, gridCopy => {
-                                gridCopy[i][j] = grid[i][j] ? 0 : 1;
-                            })
-                            //gridCopy[i][j] = gridCopy[i][j] ? 0 : 1;
+
+                            let gridCopy = JSON.parse(JSON.stringify(grid))
+                            gridCopy[i][j] = gridCopy[i][j] ? 0 : 1;
                             setGrid(gridCopy)
                         }} className='cell' style={{ backgroundColor: grid[i][j] ? 'black' : undefined }} />
                     }))}
-            </div>
+            </Container>
         </>
     )
 }
