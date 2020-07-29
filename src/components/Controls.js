@@ -52,6 +52,17 @@ const Controls = props => {
             }}>
                 clear
             </Button>
+
+            {/* time interval dropdown */}
+            <select onChange={e => {
+                e.preventDefault()
+                props.setSpeed(e.target.value)
+            }}>
+                <option value='1000'>Slow</option>
+                <option value='600'>Medium</option>
+                <option value='100'>Fast</option>
+                <option value='10'>Ultra-fast</option>
+            </select>
         </Container>
     )
 }

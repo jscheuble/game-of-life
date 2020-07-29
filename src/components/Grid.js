@@ -22,6 +22,7 @@ const Grid = () => {
     // initialize grid with zeros
     const [grid, setGrid] = useState(Array(rowCount).fill(Array(colCount).fill(0)))
     const [active, setActive] = useState(false)
+    const [speed, setSpeed] = useState(1000)
 
     // access active state variable inside useCallback function
     const activeRef = useRef();
@@ -55,12 +56,12 @@ const Grid = () => {
             })
         })
 
-        setTimeout(simulate, 100)
-    }, [])
+        setTimeout(simulate, parseInt(speed))
+    }, [speed])
 
     return (
         <>
-            <Controls setActive={setActive} active={active} activeRef={activeRef} simulate={simulate} grid={grid} setGrid={setGrid} />
+            <Controls setActive={setActive} active={active} activeRef={activeRef} simulate={simulate} grid={grid} setGrid={setGrid} setSpeed={setSpeed} />
             <Container style={{ display: 'grid', gridTemplateColumns: `repeat(${colCount}, 15px)` }} >
                 {grid.map((row, i) =>
                     row.map((col, j) => {
