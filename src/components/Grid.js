@@ -3,6 +3,7 @@ import produce from 'immer'
 import styled from 'styled-components'
 
 import { neighbors } from '../utils/neighbors'
+import colors from '../utils/colors'
 import Controls from './Controls'
 import Generation from './Generation'
 
@@ -11,7 +12,12 @@ const colCount = 50
 
 const width = rowCount * 30 + 2
 
-const Container = styled.div`
+const MainContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const GridContainer = styled.div`
     margin: auto;
     width: ${width}px;
     box-shadow: 0px 0px 20px 10px #00DAD9;
@@ -43,19 +49,19 @@ const Grid = () => {
             return produce(g, gridCopy => {
                 for (let i = 0; i < rowCount; i++) {
                     for (let j = 0; j < colCount; j++) {
-                        let currentNeighbors = 0
+                        let currentNeighbors = 0;
                         neighbors.forEach(([x, y]) => {
                             const row = i + x
                             const col = j + y
                             // check cell boundaries
                             if (row >= 0 && row < rowCount && col >= 0 && col < colCount) {
-                                currentNeighbors += g[row][col]
+                                currentNeighbors += g[row][col];
                             }
                         })
                         if (currentNeighbors < 2 || currentNeighbors > 3) {
-                            gridCopy[i][j] = 0
+                            gridCopy[i][j] = 0;
                         } else if (grid[i][j] === 0 && currentNeighbors === 3) {
-                            gridCopy[i][j] = 1
+                            gridCopy[i][j] = 1;
                         }
                     }
                 }
@@ -64,10 +70,30 @@ const Grid = () => {
         setTimeout(simulate, parseInt(speed))
     }, [speed])
 
+    // const cellColor = (grid, i, j) => {
+    //     return grid[i][j] === 0 ?
+    //         undefined :
+    //         grid[i][j] === 1 ?
+    //             colors[0]
+    //             : grid[i][j] === 2 ?
+    //                 colors[1]
+    //                 : grid[i][j] === 3 ?
+    //                     colors[2]
+    //                     : grid[i][j] === 4 ?
+    //                         colors[3]
+    //                         : grid[i][j] === 5 ?
+    //                             colors[4]
+    //                             : grid[i][j] === 6 ?
+    //                                 colors[5]
+    //                                 : grid[i][j] === 7 ?
+    //                                     colors[6]
+    //                                     : colors[Math.floor(Math.random() * Math.floor(7))]
+    // }
+
     return (
-        <>
+        <MainContainer>
             <Controls setActive={setActive} active={active} activeRef={activeRef} simulate={simulate} grid={grid} setGrid={setGrid} setSpeed={setSpeed} setGen={setGen} />
-            <Container style={{ display: 'grid', gridTemplateColumns: `repeat(${colCount}, 15px)` }} >
+            <GridContainer style={{ display: 'grid', gridTemplateColumns: `repeat(${colCount}, 15px)` }} >
                 {grid.map((row, i) =>
                     row.map((col, j) => {
                         return <div key={`${i}-${j}`} onClick={() => {
@@ -80,11 +106,11 @@ const Grid = () => {
                             let gridCopy = JSON.parse(JSON.stringify(grid))
                             gridCopy[i][j] = gridCopy[i][j] ? 0 : 1;
                             setGrid(gridCopy)
-                        }} className='cell' style={{ backgroundColor: grid[i][j] ? '#00DAD9' : undefined }} />
+                        }} className='cell' style={{ backgroundColor: grid[i][j] ? colors[0] : undefined }} />
                     }))}
-            </Container>
+            </GridContainer>
             <Generation gen={gen} setGen={setGen} grid={grid} setGrid={setGrid} activeRef={activeRef} />
-        </>
+        </MainContainer>
     )
 }
 
