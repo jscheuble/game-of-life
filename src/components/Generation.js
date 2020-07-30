@@ -1,9 +1,21 @@
 import React from 'react'
 import produce from 'immer'
+import styled from 'styled-components'
+
 import { neighbors } from '../utils/neighbors'
 
 const rowCount = 25
 const colCount = 50
+
+const Container = styled.div`
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+`;
+
+const Button = styled.button`
+    margin-left: 2%;
+`;
 
 const Generation = props => {
 
@@ -34,16 +46,16 @@ const Generation = props => {
     }
 
     return (
-        <div>
+        <Container>
             Current Generation: {props.gen}
-            <button onClick={() => {
+            <Button onClick={() => {
                 if (props.activeRef.current) {
                     return
                 }
                 skipGeneration()
                 props.setGen(props.gen + 1)
-            }}>Next Generation</button>
-        </div>
+            }}>+1</Button>
+        </Container>
     )
 }
 
