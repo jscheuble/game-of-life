@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react'
+import React, { useState, useCallback, useRef, useEffect } from 'react'
 import produce from 'immer'
 import styled from 'styled-components'
 
@@ -23,15 +23,22 @@ const Grid = () => {
     // initialize grid with zeros
     const [grid, setGrid] = useState(Array(rowCount).fill(Array(colCount).fill(0)))
     const [active, setActive] = useState(false)
-    const [speed, setSpeed] = useState(1000)
+    const [speed, setSpeed] = useState(10)
     const [gen, setGen] = useState(0)
 
     // access active state variable inside useCallback function
-    const activeRef = useRef();
+    const activeRef = useRef(active);
     activeRef.current = active
 
-    const genRef = useRef();
+    const genRef = useRef(gen);
     genRef.current = gen
+
+    const speedRef = useRef(speed);
+    speedRef.current = speed
+
+    useEffect(() => {
+        console.log('from useeffect', grid)
+    }, [grid])
 
     const simulate = useCallback(() => {
         if (!activeRef.current) {
@@ -49,7 +56,7 @@ const Grid = () => {
                             const col = j + y
                             // check cell boundaries
                             if (row >= 0 && row < rowCount && col >= 0 && col < colCount) {
-                                currentNeighbors += g[row][col]
+                                currentNeighbors += g[row][col];
                             }
                         })
                         if (currentNeighbors < 2 || currentNeighbors > 3) {
@@ -61,8 +68,9 @@ const Grid = () => {
                 }
             })
         })
-        setTimeout(simulate, parseInt(speed))
-    }, [speed])
+
+        setTimeout(simulate, speedRef.current)
+    }, [])
 
     return (
         <>
