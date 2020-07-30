@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react'
+import React, { useState, useCallback, useRef } from 'react'
 import produce from 'immer'
 import styled from 'styled-components'
 
@@ -23,7 +23,7 @@ const Grid = () => {
     // initialize grid with zeros
     const [grid, setGrid] = useState(Array(rowCount).fill(Array(colCount).fill(0)))
     const [active, setActive] = useState(false)
-    const [speed, setSpeed] = useState(10)
+    const [speed, setSpeed] = useState(1000)
     const [gen, setGen] = useState(0)
 
     // access active state variable inside useCallback function
@@ -35,10 +35,6 @@ const Grid = () => {
 
     const speedRef = useRef(speed);
     speedRef.current = speed
-
-    useEffect(() => {
-        console.log('from useeffect', grid)
-    }, [grid])
 
     const simulate = useCallback(() => {
         if (!activeRef.current) {

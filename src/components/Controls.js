@@ -2,6 +2,8 @@ import React from 'react'
 import produce from 'immer'
 import styled from 'styled-components'
 
+import { presets } from '../utils/presets'
+
 const rowCount = 25
 const colCount = 50
 
@@ -54,6 +56,15 @@ const Controls = props => {
                 <option value='100'>Fast</option>
                 <option value='10'>Ultra-fast</option>
             </select>
+
+            {/* preset grid dropdown */}
+            {/* <select onChange={e => {
+                props.setGen(1)
+                props.setGrid(presets[e.target.value])
+            }}>
+                <option value='0'>select a pattern</option>
+                <option value='1'>penta-ships</option>
+            </select> */}
 
             {/* clear button  */}
             <Button onClick={() => {
