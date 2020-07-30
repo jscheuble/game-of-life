@@ -32,6 +32,7 @@ const Controls = props => {
                 if (props.active) {
                     return
                 }
+                props.setGen(1)
                 props.setGrid(g => {
                     return produce(g, gridCopy => {
                         for (let i = 0; i < rowCount; i++) {
@@ -43,16 +44,6 @@ const Controls = props => {
                 })
             }}>random</Button>
 
-            {/* clear button  */}
-            <Button onClick={() => {
-                if (props.active) {
-                    return
-                }
-                props.setGrid(Array(rowCount).fill(Array(colCount).fill(0)))
-            }}>
-                clear
-            </Button>
-
             {/* time interval dropdown */}
             <select onChange={e => {
                 e.preventDefault()
@@ -63,6 +54,17 @@ const Controls = props => {
                 <option value='100'>Fast</option>
                 <option value='10'>Ultra-fast</option>
             </select>
+
+            {/* clear button  */}
+            <Button onClick={() => {
+                if (props.active) {
+                    return
+                }
+                props.setGen(0)
+                props.setGrid(Array(rowCount).fill(Array(colCount).fill(0)))
+            }}>
+                clear
+            </Button>
         </Container>
     )
 }

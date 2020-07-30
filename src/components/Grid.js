@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { neighbors } from '../utils/neighbors'
 import Controls from './Controls'
+import Generation from './Generation'
 
 const rowCount = 25
 const colCount = 50
@@ -23,15 +24,20 @@ const Grid = () => {
     const [grid, setGrid] = useState(Array(rowCount).fill(Array(colCount).fill(0)))
     const [active, setActive] = useState(false)
     const [speed, setSpeed] = useState(1000)
+    const [gen, setGen] = useState(0)
 
     // access active state variable inside useCallback function
     const activeRef = useRef();
     activeRef.current = active
 
+    const genRef = useRef();
+    genRef.current = gen
+
     const simulate = useCallback(() => {
         if (!activeRef.current) {
             return
         }
+        setGen(genRef.current + 1)
         setGrid(g => {
             // create new version of grid to manipulate
             return produce(g, gridCopy => {
@@ -55,19 +61,20 @@ const Grid = () => {
                 }
             })
         })
-
         setTimeout(simulate, parseInt(speed))
     }, [speed])
 
     return (
         <>
-            <Controls setActive={setActive} active={active} activeRef={activeRef} simulate={simulate} grid={grid} setGrid={setGrid} setSpeed={setSpeed} />
+            <Controls setActive={setActive} active={active} activeRef={activeRef} simulate={simulate} grid={grid} setGrid={setGrid} setSpeed={setSpeed} setGen={setGen} />
             <Container style={{ display: 'grid', gridTemplateColumns: `repeat(${colCount}, 15px)` }} >
                 {grid.map((row, i) =>
                     row.map((col, j) => {
                         return <div key={`${i}-${j}`} onClick={() => {
                             if (active) {
                                 return
+                            } else if (gen === 0) {
+                                setGen(1)
                             }
 
                             let gridCopy = JSON.parse(JSON.stringify(grid))
@@ -76,6 +83,7 @@ const Grid = () => {
                         }} className='cell' style={{ backgroundColor: grid[i][j] ? '#00DAD9' : undefined }} />
                     }))}
             </Container>
+            <Generation gen={gen} />
         </>
     )
 }
