@@ -1,10 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@700&family=Roboto+Condensed&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(-45deg, #000000, #221c24, #2c364b, #17566b, #007777);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #fff;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 code {
@@ -12,8 +28,14 @@ code {
     monospace;
 }
 
+.heading {
+  text-align: center;
+  font-family: 'Red Rose', sans-serif;
+}
+
 .cell {
   width: 15px;
   height: 15px;
-  border: 1px solid black;
+  border: 0.2px solid #000;
 }
+
