@@ -71,7 +71,7 @@ const Grid = () => {
                 {grid.map((row, i) =>
                     row.map((col, j) => {
                         return <div key={`${i}-${j}`} onClick={() => {
-                            if (active) {
+                            if (activeRef.current) {
                                 return
                             } else if (gen === 0) {
                                 setGen(1)
@@ -83,7 +83,7 @@ const Grid = () => {
                         }} className='cell' style={{ backgroundColor: grid[i][j] ? '#00DAD9' : undefined }} />
                     }))}
             </Container>
-            <Generation gen={gen} />
+            <Generation gen={gen} setGen={setGen} grid={grid} setGrid={setGrid} activeRef={activeRef} />
         </>
     )
 }
