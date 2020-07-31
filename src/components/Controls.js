@@ -14,7 +14,19 @@ const Container = styled.div`
     justify-content: space-evenly;
 `;
 
-const Button = styled.button``;
+const Button = styled.div`
+    box-shadow: 0px 0px 5px 5px #00DAD9;
+    padding: 1% 2%;
+    border-radius: 7px; 
+`;
+
+const Dropdown = styled.select`
+    background: transparent;
+    color: #fff;
+    padding: 1%;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 5px #00DAD9;
+`;
 
 const Controls = props => {
 
@@ -47,7 +59,7 @@ const Controls = props => {
             }}>random</Button>
 
             {/* time interval dropdown */}
-            <select onChange={e => {
+            <Dropdown onChange={e => {
                 e.preventDefault()
                 props.setSpeed(e.target.value)
             }}>
@@ -55,7 +67,7 @@ const Controls = props => {
                 <option value='600'>Medium</option>
                 <option value='100'>Fast</option>
                 <option value='10'>Ultra-fast</option>
-            </select>
+            </Dropdown>
 
             {/* preset grid dropdown */}
             {/* <select onChange={e => {

@@ -67,3 +67,9 @@ span.link {
   box-shadow: 0px 0px 20px 10px #00DAD9;
 
 }
+
+select {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-shadow: 0 0 5px #00DAD9;
+  font-size: 15px;
+}

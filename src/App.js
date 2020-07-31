@@ -19,7 +19,7 @@ function App() {
     <div>
       <Nav setRules={setRules} about={about} setAbout={setAbout} />
       {rules ? <Rules setRules={setRules} /> : undefined}
-      {about ? <About /> : undefined}
+      {about ? <About setAbout={setAbout} /> : undefined}
       <Container>
         <Grid />
       </Container>

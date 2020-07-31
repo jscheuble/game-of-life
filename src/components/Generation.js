@@ -13,8 +13,11 @@ const Container = styled.div`
     justify-content: center;
 `;
 
-const Button = styled.button`
+const Button = styled.div`
     margin-left: 2%;
+    box-shadow: 0px 0px 5px 5px #00DAD9;
+    padding: 1% 2%;
+    border-radius: 7px; 
 `;
 
 const Generation = props => {
