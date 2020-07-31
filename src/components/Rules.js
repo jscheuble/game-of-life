@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    width: 20%;
     font-size: 20px;
     padding: 5%;
 `;
