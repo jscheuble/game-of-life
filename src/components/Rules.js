@@ -24,7 +24,7 @@ const Rules = props => {
             <Container className='popup' id='rules'>
                 <TitleWrapper>
                     <h4 style={{ textAlign: 'center' }}>Rules</h4>
-                    <span onClick={() => props.setRules(false)}>&#x2612;</span>
+                    <span className='close-btn' onClick={() => props.setRules(false)}>&#x2612;</span>
                 </TitleWrapper>
                 <ul>
                     <ListItem>Any live cell with 2 or 3 live neighbors survives to the next generation.</ListItem>

@@ -78,3 +78,7 @@ select {
   text-shadow: 0 0 5px #00DAD9;
   font-size: 15px;
 }
+
+.close-btn {
+  font-size: 25px;
+}

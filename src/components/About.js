@@ -12,7 +12,7 @@ const About = props => {
             <div className='popup' id='about'>
                 <TitleWrapper>
                     <h4 style={{ fontSize: '20px' }} >About The Game of Life</h4>
-                    <span onClick={() => props.setAbout(false)}>&#x2612;</span>
+                    <span className='close-btn' onClick={() => props.setAbout(false)}>&#x2612;</span>
                 </TitleWrapper>
                 <p>The Game of Life was created in 1970 by John Horton Conway. The game operates as a cellular automaton, requiring no physical players.</p>
                 <p>Conway was on determined to create an unpredictable cellular automaton. He had specific intentions for the rules to abide by the following criteria</p>
