@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 const Container = styled.header`
     margin-bottom: 1%;
@@ -17,14 +16,14 @@ const NavContainer = styled.nav`
     justify-content: flex-end;
 `;
 
-const Nav = () => {
+const Nav = props => {
 
     return (
         <Container>
             <h1 className='heading'>&#10036; The Game of Life &#10036;</h1>
             <NavContainer>
-                <Link>Rules</Link>
-                <Link>About</Link>
+                <span className='link' onClick={() => props.setRules(true)}>Rules</span>
+                <span className='link'>About</span>
             </NavContainer>
         </Container>
     )
