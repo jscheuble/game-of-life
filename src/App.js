@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import Grid from './components/Grid'
 import Nav from './components/Nav'
+import Rules from './components/Rules'
+import About from './components/About'
 
 const Container = styled.div`
   display: flex;
@@ -10,9 +12,14 @@ const Container = styled.div`
 `;
 
 function App() {
+  const [rules, setRules] = useState(false)
+  const [about, setAbout] = useState(false)
+
   return (
     <div>
-      <Nav />
+      <Nav setRules={setRules} about={about} setAbout={setAbout} />
+      {rules ? <Rules setRules={setRules} /> : undefined}
+      {about ? <About /> : undefined}
       <Container>
         <Grid />
       </Container>
