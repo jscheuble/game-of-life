@@ -8,7 +8,7 @@ const rowCount = 25
 const colCount = 50
 
 const Container = styled.div`
-    margin-top: 2%;
+    margin: 2% 0 5% 0;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -5,6 +5,7 @@ const Container = styled.div`
     width: 20%;
     font-size: 20px;
     margin-right: 3%;
+    padding: 5%;
 `;
 
 const TitleWrapper = styled.div`
@@ -21,7 +22,7 @@ const ListItem = styled.li`
 const Rules = props => {
     return (
         <div className='popup-container'>
-            <Container className='popup'>
+            <Container className='popup' id='rules'>
                 <TitleWrapper>
                     <h4 style={{ textAlign: 'center' }}>Rules</h4>
                     <span onClick={() => props.setRules(false)}>&#x2612;</span>
