@@ -6,9 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(-45deg, #000000, #221c24, #2c364b, #17566b, #007777);
-  background-size: 400% 400%;
+  background-size: 200% 200%;
   animation: gradient 15s ease infinite;
   color: #fff;
+  text-shadow: 0 0 5px #00DAD9;
 }
 
 @keyframes gradient {
@@ -29,8 +30,16 @@ code {
 }
 
 .heading {
-  text-align: center;
+  text-align: left;
   font-family: 'Red Rose', sans-serif;
+  margin: 3%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding-right: 9%;
 }
 
 .cell {

@@ -10,7 +10,10 @@ const penta = () => {
     for (let i = 0; i < rowCount; i++) {
         for (let j = 0; j < colCount; j++) {
             if (i === 10) {
+                console.log(i, j)
                 grid[i][j] = 1;
+            } else {
+                console.log('***', i, j)
             }
         }
     }

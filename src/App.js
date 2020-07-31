@@ -1,11 +1,21 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import Grid from './components/Grid'
+import Nav from './components/Nav'
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 function App() {
   return (
     <div>
-      <h1 className='heading'>&#10036; The Game of Life &#10036;</h1>
-      <Grid />
+      <Nav />
+      <Container>
+        <Grid />
+      </Container>
     </div>
   );
 }

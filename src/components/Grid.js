@@ -11,7 +11,13 @@ const colCount = 50
 
 const width = rowCount * 30 + 2
 
-const Container = styled.div`
+const MainContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 1%;
+`;
+
+const GridContainer = styled.div`
     margin: auto;
     width: ${width}px;
     box-shadow: 0px 0px 20px 10px #00DAD9;
@@ -69,9 +75,9 @@ const Grid = () => {
     }, [])
 
     return (
-        <>
+        <MainContainer>
             <Controls setActive={setActive} active={active} activeRef={activeRef} simulate={simulate} grid={grid} setGrid={setGrid} setSpeed={setSpeed} setGen={setGen} />
-            <Container style={{ display: 'grid', gridTemplateColumns: `repeat(${colCount}, 15px)` }} >
+            <GridContainer style={{ display: 'grid', gridTemplateColumns: `repeat(${colCount}, 15px)` }} >
                 {grid.map((row, i) =>
                     row.map((col, j) => {
                         return <div key={`${i}-${j}`} onClick={() => {
@@ -86,9 +92,9 @@ const Grid = () => {
                             setGrid(gridCopy)
                         }} className='cell' style={{ backgroundColor: grid[i][j] ? '#00DAD9' : undefined }} />
                     }))}
-            </Container>
+            </GridContainer>
             <Generation gen={gen} setGen={setGen} grid={grid} setGrid={setGrid} activeRef={activeRef} />
-        </>
+        </MainContainer>
     )
 }
 

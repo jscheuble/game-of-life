@@ -2,13 +2,13 @@ import React from 'react'
 import produce from 'immer'
 import styled from 'styled-components'
 
-import { presets } from '../utils/presets'
+// import { presets } from '../utils/presets'
 
 const rowCount = 25
 const colCount = 50
 
 const Container = styled.div`
-    margin: 2% auto;
+    margin: 0 auto 5% auto;
     width: 60%;
     display: flex;
     justify-content: space-evenly;
