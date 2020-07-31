@@ -8,13 +8,21 @@ const rowCount = 25
 const colCount = 50
 
 const Container = styled.div`
-    margin-top: 2%;
+    margin: 2% 0 5% 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
-const Button = styled.button`
+const Button = styled.div`
     margin-left: 2%;
+    box-shadow: 0px 0px 5px 5px #00DAD9;
+    padding: 1% 1.5%;
+    border-radius: 7px; 
+`;
+
+const P = styled.p`
+    font-size: 20px;
 `;
 
 const Generation = props => {
@@ -47,7 +55,7 @@ const Generation = props => {
 
     return (
         <Container>
-            Current Generation: {props.gen}
+            <P>Current Generation: {props.gen}</P>
             <Button onClick={() => {
                 if (props.activeRef.current) {
                     return

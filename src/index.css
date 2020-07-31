@@ -6,9 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(-45deg, #000000, #221c24, #2c364b, #17566b, #007777);
-  background-size: 400% 400%;
+  background-size: 200% 200%;
   animation: gradient 15s ease infinite;
   color: #fff;
+  text-shadow: 0 0 5px #00DAD9;
 }
 
 @keyframes gradient {
@@ -29,8 +30,16 @@ code {
 }
 
 .heading {
-  text-align: center;
+  text-align: left;
   font-family: 'Red Rose', sans-serif;
+  margin: 3%;
+}
+
+span.link {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding-right: 9%;
 }
 
 .cell {
@@ -39,3 +48,35 @@ code {
   border: 0.2px solid #000;
 }
 
+.popup-container {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 150%;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+}
+
+.popup {
+  background-color: #060B18;
+  position: absolute;
+  top: 1%;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 20px 10px #00DAD9;
+}
+
+#rules {
+  left: 39%;
+}
+
+#about {
+  left: 15%;
+  padding: 4%;
+}
+
+select {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-shadow: 0 0 5px #00DAD9;
+  font-size: 15px;
+}
