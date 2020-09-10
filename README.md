@@ -22,7 +22,7 @@ $ npm start
 
 ## How to Use
 
-- To start the simulation, some of the grid cells must be 'alive.' The random button creates a random grid, but cells are toggled manually when clicked
+- The start button starts the simulation, but first some of the grid cells must be 'alive.' The random button creates a random grid, but cells are toggled manually when clicked
 - While the simulation is paused, user can step through generations one by one, manipulate speed, clear the grid, and toggle cells
 
 ## Current Features
