@@ -35,6 +35,6 @@ $ npm start
 
 ## Future Features
 
-- Currently, the grid is not mobile responsive. I plan to create an adaptable mobile version.
-- I plan to create a dropdown where users can select from various preselected grid patterns.
-- I also plan to incorporate more color into the simulation, potentially an animated gradient or randomly generated colors for each individual cell.
+- Plans to make grid responsive and accessible for tablet and mobile
+- Plans to create a dropdown where users can select from various preselected grid patterns
+- Plans to incorporate more color into the simulation, potentially an animated gradient or randomly generated colors for each individual cell.
