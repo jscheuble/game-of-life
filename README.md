@@ -35,6 +35,6 @@ $ npm start
 
 ## Future Features
 
-- Plans to make grid responsive and accessible for tablet and mobile
+- Plans to implement useMediaQuery hook to make grid responsive and accessible for screens 700px and under
 - Plans to create a dropdown where users can select from various preselected grid patterns
 - Plans to incorporate more color into the simulation, potentially an animated gradient or randomly generated colors for each individual cell.
