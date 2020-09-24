@@ -7,7 +7,6 @@ Conway's Game of Life is a two-dimensional grid containing cells that can either
 - All other live cells die in the next generation.
 
 
-
 ## Deploy Link
 
 https://game-of-life-neon.vercel.app/
@@ -35,6 +34,6 @@ $ npm start
 
 ## Future Features
 
-- Plans to implement useMediaQuery hook to make grid responsive and accessible for screens 700px and under
-- Plans to create a dropdown where users can select from various preselected grid patterns
-- Plans to incorporate more color into the simulation, potentially an animated gradient or randomly generated colors for each individual cell.
+- Implement useMediaQuery hook to make grid responsive and accessible for screens 700px and under
+- Create a dropdown where users can select from various preselected grid patterns
+- Incorporate more color into the simulation, potentially an animated gradient or randomly generated colors for each individual cell.
